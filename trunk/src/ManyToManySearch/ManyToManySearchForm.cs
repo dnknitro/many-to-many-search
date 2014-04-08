@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -22,6 +23,7 @@ namespace ManyToManySearch
 			uiConfig.AddCustomParamProvider(excludeFilesTextBox);
 			uiConfig.AddCustomParamProvider(excludeFoldersTextBox);
 			uiConfig.AddCustomParamProvider(stringsToSearchTextBox);
+			uiConfig.AddCustomParamProvider(caseSensitiveCheckBox);
 			uiConfig.AddCustomParamProvider(invertSearchResultsCheckBox);
 			uiConfig.AddCustomParamProvider(regularExpressionsCheckBox);
 			uiConfig.AddCustomParamProvider(doubleClickEditorPathTextBox);
@@ -71,13 +73,16 @@ namespace ManyToManySearch
 		{
 			foreach(var file in Directory.GetFiles(path))
 			{
-				if(!string.IsNullOrWhiteSpace(includeFilesTextBox.Text) && !Regex.IsMatch(file, includeFilesTextBox.Text)) continue;
-				if(!string.IsNullOrWhiteSpace(excludeFilesTextBox.Text) && Regex.IsMatch(file, excludeFilesTextBox.Text)) continue;
+				if(!string.IsNullOrWhiteSpace(includeFilesTextBox.Text) && !Regex.IsMatch(file, includeFilesTextBox.Text, RegexOptions.IgnoreCase)) continue;
+				if(!string.IsNullOrWhiteSpace(excludeFilesTextBox.Text) && Regex.IsMatch(file, excludeFilesTextBox.Text, RegexOptions.IgnoreCase)) continue;
 				var readAllText = File.ReadAllText(file);
 
 				foreach(var pair in results)
 				{
-					var contains = regularExpressionsCheckBox.Checked ? Regex.IsMatch(readAllText, pair.Key) : readAllText.Contains(pair.Key);
+					var contains = regularExpressionsCheckBox.Checked
+						? Regex.IsMatch(readAllText, pair.Key, caseSensitiveCheckBox.Checked ? RegexOptions.None : RegexOptions.IgnoreCase) 
+						//: readAllText.Contains(pair.Key);
+						: CultureInfo.CurrentCulture.CompareInfo.IndexOf(readAllText, pair.Key, caseSensitiveCheckBox.Checked ? CompareOptions.None : CompareOptions.IgnoreCase) >= 0;
 					if(contains ^ invertSearchResultsCheckBox.Checked)
 						pair.Value.Add("   " + file);
 				}
@@ -85,8 +90,8 @@ namespace ManyToManySearch
 
 			foreach(var directory in Directory.GetDirectories(path))
 			{
-				if(!string.IsNullOrWhiteSpace(includeFoldersTextBox.Text) && !Regex.IsMatch(directory, includeFoldersTextBox.Text)) continue;
-				if(!string.IsNullOrWhiteSpace(excludeFoldersTextBox.Text) && Regex.IsMatch(directory, excludeFoldersTextBox.Text)) continue;
+				if(!string.IsNullOrWhiteSpace(includeFoldersTextBox.Text) && !Regex.IsMatch(directory, includeFoldersTextBox.Text, RegexOptions.IgnoreCase)) continue;
+				if(!string.IsNullOrWhiteSpace(excludeFoldersTextBox.Text) && Regex.IsMatch(directory, excludeFoldersTextBox.Text, RegexOptions.IgnoreCase)) continue;
 				SearchFolder(results, directory);
 			}
 		}

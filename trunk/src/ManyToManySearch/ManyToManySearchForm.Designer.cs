@@ -61,6 +61,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel5 = new System.Windows.Forms.Panel();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.caseSensitiveCheckBox = new System.Windows.Forms.CheckBox();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -89,7 +90,6 @@
 			this.inFolderTextBox.Name = "inFolderTextBox";
 			this.inFolderTextBox.Size = new System.Drawing.Size(404, 20);
 			this.inFolderTextBox.TabIndex = 1;
-			this.inFolderTextBox.Text = "";
 			// 
 			// pickFolderButton
 			// 
@@ -107,7 +107,7 @@
 			this.startSearchButton.Location = new System.Drawing.Point(0, 46);
 			this.startSearchButton.Name = "startSearchButton";
 			this.startSearchButton.Size = new System.Drawing.Size(75, 23);
-			this.startSearchButton.TabIndex = 11;
+			this.startSearchButton.TabIndex = 3;
 			this.startSearchButton.Text = "&Search";
 			this.startSearchButton.UseVisualStyleBackColor = true;
 			this.startSearchButton.Click += new System.EventHandler(this.startSearchButton_Click);
@@ -115,10 +115,10 @@
 			// invertSearchResultsCheckBox
 			// 
 			this.invertSearchResultsCheckBox.AutoSize = true;
-			this.invertSearchResultsCheckBox.Location = new System.Drawing.Point(0, 0);
+			this.invertSearchResultsCheckBox.Location = new System.Drawing.Point(178, 3);
 			this.invertSearchResultsCheckBox.Name = "invertSearchResultsCheckBox";
 			this.invertSearchResultsCheckBox.Size = new System.Drawing.Size(128, 17);
-			this.invertSearchResultsCheckBox.TabIndex = 9;
+			this.invertSearchResultsCheckBox.TabIndex = 2;
 			this.invertSearchResultsCheckBox.Text = "Invert Search Results";
 			this.toolTip1.SetToolTip(this.invertSearchResultsCheckBox, "Display files NOT contaning any String(s) to Search");
 			this.invertSearchResultsCheckBox.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@
 			this.regularExpressionsCheckBox.Location = new System.Drawing.Point(0, 23);
 			this.regularExpressionsCheckBox.Name = "regularExpressionsCheckBox";
 			this.regularExpressionsCheckBox.Size = new System.Drawing.Size(122, 17);
-			this.regularExpressionsCheckBox.TabIndex = 10;
+			this.regularExpressionsCheckBox.TabIndex = 1;
 			this.regularExpressionsCheckBox.Text = "Regular Expressions";
 			this.regularExpressionsCheckBox.UseVisualStyleBackColor = true;
 			// 
@@ -140,7 +140,7 @@
 			this.label3.Location = new System.Drawing.Point(10, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(82, 13);
-			this.label3.TabIndex = 12;
+			this.label3.TabIndex = 0;
 			this.label3.Text = "Search Results:";
 			// 
 			// searchResultsListBox
@@ -150,7 +150,7 @@
 			this.searchResultsListBox.Name = "searchResultsListBox";
 			this.searchResultsListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
 			this.searchResultsListBox.Size = new System.Drawing.Size(437, 232);
-			this.searchResultsListBox.TabIndex = 13;
+			this.searchResultsListBox.TabIndex = 1;
 			this.searchResultsListBox.DoubleClick += new System.EventHandler(this.searchResultsListBox_DoubleClick);
 			// 
 			// copyResultsToClipboardButton
@@ -207,7 +207,7 @@
 			this.panel1.Location = new System.Drawing.Point(10, 245);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(437, 69);
-			this.panel1.TabIndex = 9;
+			this.panel1.TabIndex = 2;
 			// 
 			// label5
 			// 
@@ -252,7 +252,7 @@
 			this.excludeFoldersTextBox.Location = new System.Drawing.Point(260, 94);
 			this.excludeFoldersTextBox.Name = "excludeFoldersTextBox";
 			this.excludeFoldersTextBox.Size = new System.Drawing.Size(176, 20);
-			this.excludeFoldersTextBox.TabIndex = 17;
+			this.excludeFoldersTextBox.TabIndex = 10;
 			this.excludeFoldersTextBox.Text = "(\\\\bin$)|(\\\\obj$)|(\\\\.svn)";
 			// 
 			// includeFoldersTextBox
@@ -262,7 +262,7 @@
 			this.includeFoldersTextBox.Location = new System.Drawing.Point(0, 94);
 			this.includeFoldersTextBox.Name = "includeFoldersTextBox";
 			this.includeFoldersTextBox.Size = new System.Drawing.Size(252, 20);
-			this.includeFoldersTextBox.TabIndex = 15;
+			this.includeFoldersTextBox.TabIndex = 8;
 			// 
 			// label7
 			// 
@@ -271,7 +271,7 @@
 			this.label7.Location = new System.Drawing.Point(257, 78);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(123, 13);
-			this.label7.TabIndex = 16;
+			this.label7.TabIndex = 9;
 			this.label7.Text = "Exclude folders RegExp:";
 			// 
 			// label8
@@ -280,7 +280,7 @@
 			this.label8.Location = new System.Drawing.Point(-3, 78);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(120, 13);
-			this.label8.TabIndex = 14;
+			this.label8.TabIndex = 7;
 			this.label8.Text = "Include folders RegExp:";
 			// 
 			// stringsToSearchTextBox
@@ -289,7 +289,7 @@
 			this.stringsToSearchTextBox.Location = new System.Drawing.Point(10, 141);
 			this.stringsToSearchTextBox.Name = "stringsToSearchTextBox";
 			this.stringsToSearchTextBox.Size = new System.Drawing.Size(437, 105);
-			this.stringsToSearchTextBox.TabIndex = 18;
+			this.stringsToSearchTextBox.TabIndex = 2;
 			this.stringsToSearchTextBox.Text = "";
 			// 
 			// statusStrip1
@@ -304,12 +304,13 @@
 			// 
 			this.panel2.Controls.Add(this.invertSearchResultsCheckBox);
 			this.panel2.Controls.Add(this.startSearchButton);
+			this.panel2.Controls.Add(this.caseSensitiveCheckBox);
 			this.panel2.Controls.Add(this.regularExpressionsCheckBox);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel2.Location = new System.Drawing.Point(10, 246);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(437, 74);
-			this.panel2.TabIndex = 20;
+			this.panel2.TabIndex = 3;
 			// 
 			// panel3
 			// 
@@ -328,7 +329,7 @@
 			this.panel3.Location = new System.Drawing.Point(10, 10);
 			this.panel3.Name = "panel3";
 			this.panel3.Size = new System.Drawing.Size(437, 118);
-			this.panel3.TabIndex = 21;
+			this.panel3.TabIndex = 0;
 			// 
 			// topPanel
 			// 
@@ -341,7 +342,7 @@
 			this.topPanel.Name = "topPanel";
 			this.topPanel.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
 			this.topPanel.Size = new System.Drawing.Size(457, 320);
-			this.topPanel.TabIndex = 22;
+			this.topPanel.TabIndex = 0;
 			// 
 			// label1
 			// 
@@ -350,7 +351,7 @@
 			this.label1.Location = new System.Drawing.Point(10, 128);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(97, 13);
-			this.label1.TabIndex = 22;
+			this.label1.TabIndex = 1;
 			this.label1.Text = "S&tring(s) to Search:";
 			// 
 			// panel5
@@ -363,7 +364,7 @@
 			this.panel5.Name = "panel5";
 			this.panel5.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
 			this.panel5.Size = new System.Drawing.Size(457, 324);
-			this.panel5.TabIndex = 23;
+			this.panel5.TabIndex = 0;
 			// 
 			// splitContainer1
 			// 
@@ -388,6 +389,16 @@
 			this.splitContainer1.Size = new System.Drawing.Size(457, 648);
 			this.splitContainer1.SplitterDistance = 320;
 			this.splitContainer1.TabIndex = 24;
+			// 
+			// caseSensitiveCheckBox
+			// 
+			this.caseSensitiveCheckBox.AutoSize = true;
+			this.caseSensitiveCheckBox.Location = new System.Drawing.Point(0, 3);
+			this.caseSensitiveCheckBox.Name = "caseSensitiveCheckBox";
+			this.caseSensitiveCheckBox.Size = new System.Drawing.Size(96, 17);
+			this.caseSensitiveCheckBox.TabIndex = 0;
+			this.caseSensitiveCheckBox.Text = "Case Sensitive";
+			this.caseSensitiveCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// ManyToManySearchForm
 			// 
@@ -452,6 +463,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel panel5;
 		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Windows.Forms.CheckBox caseSensitiveCheckBox;
 	}
 }
 
