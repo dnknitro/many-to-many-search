@@ -89,7 +89,7 @@
 			this.inFolderTextBox.Name = "inFolderTextBox";
 			this.inFolderTextBox.Size = new System.Drawing.Size(404, 20);
 			this.inFolderTextBox.TabIndex = 1;
-			this.inFolderTextBox.Text = "c:\\Projects\\Ameritox\\branchBugFixesJune2014\\src\\WebPortal\\";
+			this.inFolderTextBox.Text = "";
 			// 
 			// pickFolderButton
 			// 
@@ -290,9 +290,7 @@
 			this.stringsToSearchTextBox.Name = "stringsToSearchTextBox";
 			this.stringsToSearchTextBox.Size = new System.Drawing.Size(437, 105);
 			this.stringsToSearchTextBox.TabIndex = 18;
-			this.stringsToSearchTextBox.Text = "bootstrap.min.css\nDatePicker.css\ndefault.css\njquery-ui.css\nlayout.css\nLoggedIn.cs" +
-    "s\nModalDialog.css\nNotLoggedIn.css\nOLROnePage.css\nReports.css\nSearchPatientCss.cs" +
-    "s";
+			this.stringsToSearchTextBox.Text = "";
 			// 
 			// statusStrip1
 			// 
