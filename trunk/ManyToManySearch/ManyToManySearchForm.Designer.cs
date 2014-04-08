@@ -202,7 +202,7 @@
 			this.panel1.Controls.Add(this.label4);
 			this.panel1.Controls.Add(this.doubleClickEditotPathTextBox);
 			this.panel1.Controls.Add(this.pickEditorButton);
-			this.panel1.Location = new System.Drawing.Point(12, 412);
+			this.panel1.Location = new System.Drawing.Point(12, 416);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(367, 69);
 			this.panel1.TabIndex = 9;
@@ -251,7 +251,7 @@
 			this.excludeFoldersTextBox.Name = "excludeFoldersTextBox";
 			this.excludeFoldersTextBox.Size = new System.Drawing.Size(176, 20);
 			this.excludeFoldersTextBox.TabIndex = 17;
-			this.excludeFoldersTextBox.Text = "(\\\\bin$)|(\\\\obj$)";
+			this.excludeFoldersTextBox.Text = "(\\\\bin$)|(\\\\obj$)|(\\\\.svn)";
 			// 
 			// includeFoldersTextBox
 			// 
@@ -283,6 +283,8 @@
 			// 
 			// stringsToSearchTextBox
 			// 
+			this.stringsToSearchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.stringsToSearchTextBox.Location = new System.Drawing.Point(12, 142);
 			this.stringsToSearchTextBox.Name = "stringsToSearchTextBox";
 			this.stringsToSearchTextBox.Size = new System.Drawing.Size(367, 67);
@@ -293,7 +295,7 @@
 			// 
 			// statusStrip1
 			// 
-			this.statusStrip1.Location = new System.Drawing.Point(0, 486);
+			this.statusStrip1.Location = new System.Drawing.Point(0, 490);
 			this.statusStrip1.Name = "statusStrip1";
 			this.statusStrip1.Size = new System.Drawing.Size(392, 22);
 			this.statusStrip1.TabIndex = 19;
@@ -303,7 +305,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(392, 508);
+			this.ClientSize = new System.Drawing.Size(392, 512);
 			this.Controls.Add(this.statusStrip1);
 			this.Controls.Add(this.stringsToSearchTextBox);
 			this.Controls.Add(this.excludeFoldersTextBox);
@@ -324,7 +326,7 @@
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label1);
-			this.MinimumSize = new System.Drawing.Size(400, 400);
+			this.MinimumSize = new System.Drawing.Size(400, 550);
 			this.Name = "ManyToManySearchForm";
 			this.Text = "Many to Many Search";
 			this.panel1.ResumeLayout(false);
