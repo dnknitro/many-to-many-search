@@ -1,0 +1,1 @@
+Windows tool to search multiple strings of text in files and display appropriate results.
